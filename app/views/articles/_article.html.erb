@@ -6,7 +6,7 @@
 		</div>
 		<div class="relative">
 			<h1 class="teal-text text-center truncate title-image"><%= link_to article.title, article %></h1>
-			<p class="white-text"><%=truncate(article.body,length: 30) %></p>
+			<p class="white-text">Article created <%= time_ago_in_words(article.created_at) %> ago </p>
 		</div>
 	</div>
 </div>
