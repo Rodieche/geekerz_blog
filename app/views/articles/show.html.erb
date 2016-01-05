@@ -1,0 +1,52 @@
+<header>
+	<h1 class="teal-text center jackpot upfont margin-top-big hide-on-small-only"><%= @article.title %></h1>
+	<h1 class="teal-text center title-mobile jackpot upfont margin-top-big hide-on-med-and-up"><%= @article.title %></h1>
+	<p class="center"> Article created <%= time_ago_in_words(@article.created_at) %> ago by <b><%= @article.user.email %></b></p>
+</header>
+
+<div class="divider container"></div>
+
+<article class="margin-top">
+	<div class="container center">
+
+		<!-- IMAGEN DEL ARTICULO -->
+		<%= render "/partials/articles/image_article" %>
+			
+		<!-- CUERPO DEL ARTICULO -->	
+		<%= render "/partials/articles/body_article" %>
+		
+		<!-- CATEGORIAS DEL ARTICULO -->
+		<%= render "/partials/articles/category_article" %>
+
+		<!-- CONTADOR DE VISITAS -->
+		<%= render "/partials/articles/visits_count_article" %>
+
+		<div class="divider"></div>
+
+		<!-- COMENTARIOS -->
+		<h3 class="teal-text bangers">Comentarios</h3>
+		<% if user_signed_in? %>
+			<div class="row">
+				<div class="col l6 m6 s12">
+					<p class="teal-text">Dejanos tu comentario</p>
+				</div>
+		<%else%>
+			<p class="bangers mediano">"Para cometar debes estar registrado"</p>
+			<p class="bangers mediano"><%= link_to "Crear Cuenta", new_user_registration_path, class: "orange-text" %> o 
+			<%= link_to "Iniciar Sesion", new_user_session_path, class: "orange-text" %> </p>
+
+		<%end%>
+			<div class="col l6 m6 s12">
+				<p><%= @article.comments.count %> comentarios</p>
+			</div>
+		</div>
+		<% if user_signed_in? %>
+			<%= render "comments/form" %>
+		<%end%>
+	</div>
+	<div class="container">
+		<%= render "/partials/articles/comments_article" %>
+	</div>
+</article>
+
+<%= render "/partials/button", {icon: "mode_edit", where: edit_article_path } %>

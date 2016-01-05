@@ -1,0 +1,9 @@
+<h2 class="jackpot upfont orange-text center">Articulos</h2>
+
+<div class="row">
+	<%= render @article %>
+</div>
+
+<%= render "/partials/button", {icon: "add", where: new_article_path} %>
+
+<%= render "/partials/pagination" %>

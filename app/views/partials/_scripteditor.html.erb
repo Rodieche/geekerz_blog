@@ -1,0 +1,14 @@
+<script>
+	var editor = new EpicEditor({
+		textarea: "markup_body-textarea", 
+		file:{
+			name: "nuevo_articulo"
+		}
+	});
+	editor.load()
+	$("#articles_form").on("submit",function(){
+		$("#body-textarea").val( editor.exportFile("nuevo_articulo", "html"));
+		$("#markup_body-textarea").val( editor.exportFile("nuevo_articulo"));
+
+	});
+</script>

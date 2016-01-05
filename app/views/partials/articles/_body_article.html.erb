@@ -1,0 +1,3 @@
+<p class="mediano">
+	<%= Sanitize.fragment(@article.body, Sanitize::Config::RELAXED).html_safe %>
+</p>

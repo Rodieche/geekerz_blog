@@ -1,0 +1,7 @@
+<% if user_signed_in? and current_user.is_editor? %>
+<div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
+	<%= link_to where, class: "btn-floating btn-large waves-effect waves-light teal right margin-lr z-depth-5" do %>
+		<%= content_tag :i, icon, :class => "material-icons black-text orange" %>
+	<% end %>
+<%end%>
+</div>

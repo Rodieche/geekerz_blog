@@ -1,0 +1,20 @@
+<div class="row">
+	<% @article.each do |article| %>
+		<div class="col l4 m6 s12">
+			<div class="relative article-height">
+				<div class="absolute article-height background-cover z-depth-3", style="background:url( <%= article.cover.url(:thumb) %> );top:0px;left:0px;">
+				</div>	
+				<div class="absolute article-height background-cover z-depth-3", style="background:rgba(0,0,0,0.7);">
+				</div>
+				<div class="relative">
+					<h1 class="teal-text text-center truncate title-image"><%= link_to article.title, article %></h1>
+					<p class="white-text"><%=truncate(article.body,length: 30) %></p>
+				</div>
+			</div>
+			<p><%= link_to "Eliminar", article, method: :delete, class: "red-text" %> 
+				<% if article.may_publish? %>
+					 - <%= link_to "Publicar", "/articles/#{article.id}/publish", method: :put , class: "blue-text" %></p>
+				<%end%>
+		</div>
+	<%end%>
+</div>

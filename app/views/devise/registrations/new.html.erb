@@ -1,0 +1,37 @@
+<h2 class="center teal-text bangers">Crear Cuenta</h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+
+<div class="container">
+  <div class="field">
+    <i class="material-icons prefix orange-text">email</i>
+    <%= f.label :email, class: "teal-text" %><br />
+    <%= f.email_field :email, autofocus: true, class: "white-text" %>
+  </div>
+
+  <div class="field">
+  <i class="material-icons prefix orange-text">vpn_key</i>
+    <%= f.label :password,"Contraseña", class: "teal-text" %>
+    <% if @minimum_password_length %>
+    <em class="teal-text">(<%= @minimum_password_length %> caracteres como minimo)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "off", class: "white-text" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation,"Confirmar contraseña", class: "teal-text" %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "off", class: "white-text" %>
+  </div>
+
+  <div class="actions center">
+    <%= f.submit "Crear Cuenta", class: "btn waves-effect waves-light teal accent-3 black-text" %>
+  </div>
+
+
+<% end %>
+<div class="margin-top center bangers mediano">
+  <%= render "devise/shared/links" %>
+</div>
+
+</div>

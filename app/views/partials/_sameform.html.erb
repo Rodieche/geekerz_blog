@@ -1,0 +1,55 @@
+<h1 class="teal-text center"><%= titulo %> articulo</h1>
+
+<%= form_for (@article),html: { id: "articles_form" } do |form| %>
+<% @article.errors.full_messages.each do |mensajes| %>
+<div class="container">
+	<div class="lime-text margin-top col l4 s12 m6 center">
+		<b>* <%= mensajes %></b>	
+	</div>
+</div>
+<%end%>
+<div class="container">
+	<div class="row margin-top">
+		
+		<form class="col s12">
+
+				<div class="input-field col s12 l12 m12">
+					<i class="material-icons prefix orange-text">label_outline</i>
+					<%= form.text_field :title, placeholder: "Titulo del Articulo", class: "teal-text", id: "icon_prefix" %>
+					<label for="first_name">Titulo</label>
+				</div>
+				
+				<div class="file-field input-field col s12 l12 m12 white-text">
+					<div class="btn">
+						<span>Subir imagen</span>
+						<%= form.file_field :cover %>
+					</div>
+				</div>
+				
+				<div class="input-field col s12 l12 m12">
+				 	<i class="material-icons prefix orange-text">mode_edit</i></br></br>
+					<%= form.hidden_field :body, id: "body-textarea" %>
+					<%= form.hidden_field :markup_body, id: "markup_body-textarea" %>
+				<div id="epiceditor" class="big-area"></div>
+					<label for="text_area">Cuerpo del Articulo</label>
+				</div>
+				<div class="input-field col s12 l12 m12">
+					<h4>Categorias</h4>
+					<div class="row">
+						<% @categories.each do |categoria| %>
+							<div class="input-field col s3 l3 m3">
+								<p>
+	     							<input type="checkbox" id="<%= categoria.id %>" name="categories[]" value="<%= categoria.id %>"/>
+	   								<label for="<%= categoria.id %>"><%= categoria.name %></label>
+	    						</p>						
+	    					</div>
+						<%end%>
+					</div>
+				</div>
+			<div class="btn teal accent-3 waves-effect waves-light right">
+			<%= form.submit boton, class: " black-text" %>
+			</div>
+		</form>
+	</div>
+</div>
+<%end%>

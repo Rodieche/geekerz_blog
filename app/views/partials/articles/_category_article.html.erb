@@ -1,0 +1,5 @@
+<p>Categorias a la que pertenece el articulo : 
+	<% @article.categories.each do |category| %>
+		<%= link_to category.name, category, class: "bangers", style: "color: category.color;" %>
+	<%end%>
+</p>

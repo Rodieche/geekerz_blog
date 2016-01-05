@@ -1,0 +1,16 @@
+<ul id="comment-box">
+	<% @article.comments.each do |comentario| %>
+		<div class="row">
+			<div class="col l2 m2 s3">
+				<%= image_tag(comentario.user.avatar) %>
+			</div>
+			<div class="col l10 m10 s9">
+				<li>
+					<p><b class="orange-text"><%= comentario.user.email %> dijo : </b><%= comentario.body %></p>
+					<p> Comment done <%= time_ago_in_words(comentario.created_at) %> ago </p>
+				</li>
+			</div>
+			<div class="divider"></div>
+		</div>
+	<%end%>
+</ul>
