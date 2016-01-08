@@ -6,5 +6,6 @@ class BienvenidoController < ApplicationController
 
 	def dashboard
 		@article = Article.all
+		@categorie = Category.all
 	end
 end

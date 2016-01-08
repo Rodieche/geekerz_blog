@@ -1,3 +1,12 @@
+<!-- SECCION DE ARTICULOS -->
+
+<div class="container">
+<h1>Articulos</h1>
+
+<%= link_to new_article_path, class: "btn-floating btn-large waves-effect waves-light teal right margin-lr z-depth-5" do %>
+		<%= content_tag :i, "add", :class => "material-icons black-text teal" %>
+	<% end %>
+
 <div class="row">
 	<% @article.each do |article| %>
 		<div class="col l4 m6 s12">
@@ -8,7 +17,7 @@
 				</div>
 				<div class="relative">
 					<h1 class="teal-text text-center truncate title-image"><%= link_to article.title, article %></h1>
-					<p class="white-text"><%=truncate(article.body,length: 30) %></p>
+					<p class="white-text">Article created <%= time_ago_in_words(article.created_at) %> ago </p>
 				</div>
 			</div>
 			<p><%= link_to "Eliminar", article, method: :delete, class: "red-text" %> 
@@ -17,4 +26,35 @@
 				<%end%>
 		</div>
 	<%end%>
+</div>
+
+<div class="divider"></div>
+
+<!-- SECCION DE CATEGORIAS -->
+
+	<h1>Categorias</h1>
+
+	<%= link_to new_category_path, class: "btn-floating btn-large waves-effect waves-light teal right margin-lr z-depth-5" do %>
+		<%= content_tag :i, "add", :class => "material-icons black-text teal" %>
+	<% end %>
+
+	<div class="col l12 m12 s12">
+		<% if @categorie.nil? %>
+		<%else%> 
+			<table>
+				<thead>
+					<td class="white-text center"><b>Cateroria</b></td>
+					<td class="white-text center"><b>Color</b></td>
+					<td class="white-text center"><b>Opciones</b></td>
+				</thead>
+				<% @categorie.each do |categoria| %>
+					<tbody>			
+						<td class="orange-text center"><%= categoria.name %></td>
+						<td class="black-text center", style="background-color: <%= categoria.color %>">COLOR</td>
+						<td class="white-text center"><%= link_to "Eliminar", categoria, method: :delete %> - <%= link_to "Actualizar", edit_category_path(categoria) %></td>
+				<%end%>
+					</tbody>
+			</table>
+		<%end%>
+	</div>
 </div>

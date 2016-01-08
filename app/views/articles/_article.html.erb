@@ -1,4 +1,5 @@
 <div class="col l4 m6 s12">
+	<% if article.published? %> 
 	<div class="relative article-height">
 		<div class="absolute article-height background-cover z-depth-3", style="background:url( <%= article.cover.url(:thumb) %> );top:0px;left:0px;">
 		</div>
@@ -9,4 +10,5 @@
 			<p class="white-text">Article created <%= time_ago_in_words(article.created_at) %> ago </p>
 		</div>
 	</div>
+	<%end%>
 </div>

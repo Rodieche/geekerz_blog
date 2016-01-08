@@ -19,9 +19,9 @@ ActiveRecord::Schema.define(version: 20160103231610) do
     t.text     "body"
     t.string   "user"
     t.integer  "visitas"
+    t.string   "email"
     t.datetime "created_at",                              null: false
     t.datetime "updated_at",                              null: false
-    t.string   "email"
     t.integer  "user_id"
     t.string   "cover_file_name"
     t.string   "cover_content_type"
