@@ -96,6 +96,7 @@ GEM
     mini_portile2 (2.0.0)
     minitest (5.8.3)
     multi_json (1.11.2)
+    mysql (2.9.1)
     nokogiri (1.6.7.1)
       mini_portile2 (~> 2.0.0.rc2)
     nokogumbo (1.4.7)
@@ -199,6 +200,7 @@ DEPENDENCIES
   jquery-rails
   jquery-turbolinks
   letter_opener
+  mysql
   paperclip
   rails (= 4.2.5)
   rails_12factor
