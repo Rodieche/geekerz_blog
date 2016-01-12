@@ -108,7 +108,6 @@ GEM
       cocaine (~> 0.5.5)
       mime-types
       mimemagic (= 0.3.0)
-    pg (0.18.4)
     rack (1.6.4)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -207,7 +206,6 @@ DEPENDENCIES
   jquery-turbolinks
   letter_opener
   paperclip
-  pg
   rails (= 4.2.5)
   rails_12factor
   sanitize
